@@ -20,7 +20,11 @@ public class Calculator {
         operations[CommandsEnum.Division.getValue()] = new Division();
     }
 
-    public float calculateResult(float a, float b, CommandsEnum cmd) {
+    public float calculateResult(float a, float b, CommandsEnum cmd) throws Exception {
+        if (cmd.getValue() > operationsCount) {
+            throw new Exception("\nCalculator received unknown command.\n");
+        }
+
         float result = operations[cmd.getValue()].calculateResult(a, b);
         String operation = a + " " + cmd.getSign() + " " + b + " = " + result;
 

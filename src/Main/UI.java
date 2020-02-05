@@ -8,11 +8,9 @@ public class UI {
 
     // Local variable with getter, setter
     private boolean _userWantsToExit;
-
     public boolean userWantsToExit() {
         return _userWantsToExit;
     }
-
     public void setUserWantToExitTrue() {
         _userWantsToExit = true;
     }
@@ -24,10 +22,12 @@ public class UI {
         inputReader = new Scanner(System.in);
     }
 
+    // Prints menu of calculator
     public void printMenu() {
         System.out.print(Constants.MENU);
     }
 
+    // Issues command index from user
     public CommandsEnum getUserCommand(String inputTip) {
         System.out.print(inputTip);
         int cmdIndex = inputReader.nextInt();
@@ -42,6 +42,7 @@ public class UI {
         return getUserCommand(Constants.USER_COMMAND_INPUT_TIP_ERROR);
     }
 
+    // Issues single float from user
     public float getFloatFromUser(String inputTip) {
         try {
             System.out.print(inputTip);
@@ -51,7 +52,7 @@ public class UI {
             return getFloatFromUser(Constants.FLOAT_INPUT_TIP_ERROR);
         }
     }
-
+    
     public void printResult(CommandsEnum cmdCalled, float A, float B, float Result) {
         System.out.println("\n" + A + " " + cmdCalled.getSign() + " " + B + " = " + Result + "\n");
     }

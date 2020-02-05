@@ -25,9 +25,13 @@ public class ProgramLauncher {
             float A, B, Result;
             A = ui.getFloatFromUser(Constants.FLOAT_A_INPUT_TIP);
             B = ui.getFloatFromUser(Constants.FLOAT_B_INPUT_TIP);
-            Result = calculator.calculateResult(A, B, cmdEntered);
 
-            ui.printResult(cmdEntered, A, B, Result);
+            try {
+                Result = calculator.calculateResult(A, B, cmdEntered);
+                ui.printResult(cmdEntered, A, B, Result);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
